@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop Catalogue</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .specs p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+    .specs span {
+      font-weight: bold;
+    }
+    .print-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #0073e6;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .modal-content, .modal {
+      animation-name: zoom;
+      animation-duration: 0.3s;
+    }
+    @keyframes zoom {
+      from {transform: scale(0.7);}
+      to {transform: scale(1);}
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #bbb;
+    }
+    @media (max-width: 600px) {
+      .modal-content {
+        max-width: 95%;
+        max-height: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Recommended Laptops</h1>
+  <button class="print-btn" onclick="window.print()">Print as PDF</button>
+
+  <div class="grid">
+    <!-- Dell G5 -->
+    <div class="card"><img src="dell_g5.jpg" alt="Dell G5"><div class="card-content"><h2>Dell G5</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 2060</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Dell G7 -->
+    <div class="card"><img src="dell_g7.jpg" alt="Dell G7"><div class="card-content"><h2>Dell G7</h2><div class="specs"><p><span>Storage:</span> 1TB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 2070</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Dell G15 -->
+    <div class="card"><img src="dell_g15.jpg" alt="Dell G15"><div class="card-content"><h2>Dell G15</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Dell G16 -->
+    <div class="card"><img src="dell_g16.jpg" alt="Dell G16"><div class="card-content"><h2>Dell G16</h2><div class="specs"><p><span>Storage:</span> 1TB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Dell Inspiron -->
+    <div class="card"><img src="dell_inspiron.jpg" alt="Dell Inspiron"><div class="card-content"><h2>Dell Inspiron</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- HP Omen 16 -->
+    <div class="card"><img src="hp_omen16.jpg" alt="HP Omen 16"><div class="card-content"><h2>HP Omen 16</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3060</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- HP Omen 15 -->
+    <div class="card"><img src="hp_omen15.jpg" alt="HP Omen 15"><div class="card-content"><h2>HP Omen 15</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 2070</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- HP Victus 15 -->
+    <div class="card"><img src="hp_victus15.jpg" alt="HP Victus 15"><div class="card-content"><h2>HP Victus 15</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- HP Victus 16 -->
+    <div class="card"><img src="hp_victus16.jpg" alt="HP Victus 16"><div class="card-content"><h2>HP Victus 16</h2><div class="specs"><p><span>Storage:</span> 1TB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3060</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- HP Pavilion 15 -->
+    <div class="card"><img src="hp_pavilion15.jpg" alt="HP Pavilion 15"><div class="card-content"><h2>HP Pavilion 15</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- HP Pavilion 16 -->
+    <div class="card"><img src="hp_pavilion16.jpg" alt="HP Pavilion 16"><div class="card-content"><h2>HP Pavilion 16</h2><div class="specs"><p><span>Storage:</span> 1TB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050 Ti</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Acer Nitro 5 -->
+    <div class="card"><img src="acer_nitro5.jpg" alt="Acer Nitro 5"><div class="card-content"><h2>Acer Nitro 5</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Lenovo Legion 5 -->
+    <div class="card"><img src="lenovo_legion5.jpg" alt="Lenovo Legion 5"><div class="card-content"><h2>Lenovo Legion 5</h2><div class="specs"><p><span>Storage:</span> 1TB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3060</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+    <!-- Lenovo IdeaPad 3 -->
+    <div class="card"><img src="lenovo_ideapad3.jpg" alt="Lenovo IdeaPad 3"><div class="card-content"><h2>Lenovo IdeaPad 3</h2><div class="specs"><p><span>Storage:</span> 512GB SSD</p><p><span>RAM:</span> 16GB</p><p><span>Graphics:</span> RTX 3050</p><p><span>Processor:</span> Intel i7</p></div></div></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="fullImage">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("fullImage");
+    const closeBtn = document.querySelector(".close");
+
+    // Apply to all images inside cards
+    document.querySelectorAll(".card img").forEach(img => {
+      img.addEventListener("click", function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+      });
+    });
+
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
